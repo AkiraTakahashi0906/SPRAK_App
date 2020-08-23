@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
+using SPRAK_App.ViewModels;
 
 namespace SPRAK_App
 {
@@ -17,7 +18,7 @@ namespace SPRAK_App
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<PartsListView>();
         }
     }
 }

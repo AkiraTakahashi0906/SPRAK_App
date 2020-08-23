@@ -3,8 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525">
+        Title="{Binding Title}" Height="650" Width="825">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="PartsList" Width="100" Command="{Binding PartsListButton}"/>
+            </StackPanel>
+            <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        </StackPanel>
     </Grid>
 </Window>

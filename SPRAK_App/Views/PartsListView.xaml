@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="SPRAK_App.Views.PartsListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <Label Content="部品リスト登録画面"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="SQKID" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding SqkIdText}" FontSize="20" Width="200" Margin="5"/>
+                <Button Content="検索"  FontSize="30" Margin="5"
+                    Command="{Binding SearchButton}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="SQK内容" Margin="5"/>
+                <Label Content="{Binding SelectedSqk.SqkContent}" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="部品番号" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding PartsNumberText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="名称" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding PartsNameText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="数量" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding PartsQuantityText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <Button Content="登録"  FontSize="30" Margin="5"
+                    Command="{Binding SaveButton}"/>
+            <ListView ItemsSource="{Binding PartsList}" x:Name="listView" SelectedItem="{Binding SelectedPartsList}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="SqkId" DisplayMemberBinding="{Binding SqkId}" Width="50"/>
+                        <GridViewColumn Header="PartsNumber" DisplayMemberBinding="{Binding PartsNumber}" Width="50"/>
+                        <GridViewColumn Header="PartsName" DisplayMemberBinding="{Binding PartsName}" Width="100"/>
+                        <GridViewColumn Header="PartsQuantity" DisplayMemberBinding="{Binding PartsQuantity}" Width="50"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</UserControl>
