@@ -30,24 +30,59 @@ namespace SPRAK_App.ViewModels
             _partsListRipository = partsListRipository;
             SearchButton = new DelegateCommand(SearchButtonExecute);
             SaveButton = new DelegateCommand(SaveButtonExecute);
+            DeleteButton= new DelegateCommand(DeleteButtonExecute);
         }
 
         public DelegateCommand SearchButton { get; }
         public DelegateCommand SaveButton { get; }
+        public DelegateCommand DeleteButton { get; }
+
+        private void Reset()
+        {
+            PartsList.Clear();
+            SelectedPartsList = null;
+            SelectedSqk = null;
+            SqkIdText = string.Empty;
+            PartsNumberText = string.Empty;
+            PartsQuantityText = string.Empty;
+
+        }
+
+        private void PartsListUpDate()
+        {
+            PartsList.Clear();
+            foreach (var partslist in _partsListRipository.GetPartsList(Convert.ToInt32(SqkIdText)))
+            {
+                PartsList.Add(new PartsListEtity(partslist.Id, partslist.SqkId, partslist.PartsNumber,
+                                                               partslist.PartsName, partslist.PartsQuantity));
+            }
+        }
+
+        private void DeleteButtonExecute()
+        {
+            //MessageBox.Show(Convert.ToString(SelectedPartsList.Id));
+            _partsListRipository.Delete(SelectedPartsList);
+            PartsListUpDate();
+        }
 
         private void SaveButtonExecute()
         {
-            MessageBox.Show(SelectedPartsList.PartsNumber);
+            var savePartsList = new PartsListEtity(0,
+                                                                    SelectedSqk.SqkId,
+                                                                    PartsNumberText,
+                                                                    PartsNameText,
+                                                                    Convert.ToInt32(PartsQuantityText));
+            _partsListRipository.Save(savePartsList);
+            PartsListUpDate();
+            SqkIdText = string.Empty;
+            PartsNumberText = string.Empty;
+            PartsQuantityText = string.Empty;
         }
 
         private void SearchButtonExecute()
         {
             SelectedSqk = _sqkDataRepository.GetSqkData(Convert.ToInt32(SqkIdText));
-            foreach (var partslist in _partsListRipository.GetPartsList(Convert.ToInt32(SqkIdText)))
-            {
-                PartsList.Add(new PartsListEtity(partslist.SqkId, partslist.PartsNumber,
-                                                               partslist.PartsName, partslist.PartsQuantity));
-            }
+            PartsListUpDate();
         }
 
         private PartsListEtity _selectedPartsList;

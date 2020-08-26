@@ -45,6 +45,7 @@
     <Compile Include="Fake\PartsListFake.cs" />
     <Compile Include="Fake\SqkFake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServer\PartsListSQLServer.cs" />
     <Compile Include="SQLServer\SQLServerHelper.cs" />
   </ItemGroup>
   <ItemGroup>

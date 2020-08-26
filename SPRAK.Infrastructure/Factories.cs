@@ -1,5 +1,6 @@
 ﻿using SPRAK.Domain.Repositories;
 using SPRAK.Infrastructure.Fake;
+using SPRAK.Infrastructure.SQLServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace SPRAK.Infrastructure
 
         public static IPartsListRipository CreatePartsList()
         {
-            return new PartsListFake();
+            //return new PartsListFake();
+            return new PartsListSQLServer();
         }
 
     }

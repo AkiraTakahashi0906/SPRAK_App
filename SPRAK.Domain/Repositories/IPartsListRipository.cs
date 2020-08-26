@@ -10,5 +10,7 @@ namespace SPRAK.Domain.Repositories
     public interface IPartsListRipository
     {
         IReadOnlyList<PartsListEtity> GetPartsList(int sqkId);
+        void Save(PartsListEtity partsData);
+        void Delete(PartsListEtity partsData);
     }
 }

@@ -1,7 +1,8 @@
 ﻿<UserControl x:Class="SPRAK_App.Views.PartsListView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
         <StackPanel>
@@ -28,15 +29,20 @@
                 <Label Content="数量" FontSize="20" Width="100" Margin="5"/>
                 <TextBox Text="{Binding PartsQuantityText}" FontSize="20" Width="200" Margin="5"/>
             </StackPanel>
-            <Button Content="登録"  FontSize="30" Margin="5"
+            <StackPanel Orientation="Horizontal">
+                <Button Content="登録"  FontSize="30" Margin="5"
                     Command="{Binding SaveButton}"/>
+                <Button Content="削除"  FontSize="30" Margin="5"
+                    Command="{Binding DeleteButton}"/>
+            </StackPanel>
             <ListView ItemsSource="{Binding PartsList}" x:Name="listView" SelectedItem="{Binding SelectedPartsList}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="SqkId" DisplayMemberBinding="{Binding SqkId}" Width="50"/>
-                        <GridViewColumn Header="PartsNumber" DisplayMemberBinding="{Binding PartsNumber}" Width="50"/>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"/>
+                        <GridViewColumn Header="SqkId" DisplayMemberBinding="{Binding SqkId}" Width="100"/>
+                        <GridViewColumn Header="PartsNumber" DisplayMemberBinding="{Binding PartsNumber}" Width="100"/>
                         <GridViewColumn Header="PartsName" DisplayMemberBinding="{Binding PartsName}" Width="100"/>
-                        <GridViewColumn Header="PartsQuantity" DisplayMemberBinding="{Binding PartsQuantity}" Width="50"/>
+                        <GridViewColumn Header="PartsQuantity" DisplayMemberBinding="{Binding PartsQuantity}" Width="100"/>
                     </GridView>
                 </ListView.View>
             </ListView>
