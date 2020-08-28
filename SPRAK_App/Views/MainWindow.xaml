@@ -8,6 +8,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Content="PartsList" Width="100" Command="{Binding PartsListButton}"/>
+                <Button Content="PartsList" Width="100" Command="{Binding ListSaveButton}"/>
             </StackPanel>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>

@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="SPRAK_App.Views.ListSaveView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding ListSaveTextBox}" FontSize="20" Width="200" Margin="5"/>
+            <Button Content="OK"
+                    IsDefault="True"
+                    Command="{Binding OKButton}"/>
+            <Button Content="はい"
+                    Command="{Binding YesCommand}"/>
+            <Button Content="いいえ"
+                    Command="{Binding NoCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

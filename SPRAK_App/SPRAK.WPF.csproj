@@ -56,10 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ListSaveViewModel.cs" />
     <Compile Include="ViewModels\PartsListViewModel.cs" />
+    <Compile Include="Views\ListSaveView.xaml.cs">
+      <DependentUpon>ListSaveView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PartsListView.xaml.cs">
       <DependentUpon>PartsListView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ListSaveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

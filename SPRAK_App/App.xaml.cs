@@ -19,6 +19,7 @@ namespace SPRAK_App
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<PartsListView>();
+            containerRegistry.RegisterDialog<ListSaveView, ListSaveViewModel>();
         }
     }
 }
