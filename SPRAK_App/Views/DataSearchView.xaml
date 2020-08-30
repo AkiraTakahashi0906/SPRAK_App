@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="SPRAK_App.Views.DataSearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DataGrid Name="datagrid" ItemsSource="{Binding ViewDatas}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"
+                  AlternationCount="2"
+                  AlternatingRowBackground="AliceBlue"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="LightGray"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False" SelectionUnit="Cell"/>
+        <Button Name="buttonPoem" Content="短歌" Grid.Column="1" Grid.Row="0" Margin="5"  />
+        <Button Name="buttonPoet" Content="歌人" Grid.Column="1" Grid.Row="1" Margin="5"  />
+        <Button Name="buttonMarge" Content="短歌と歌人" Grid.Column="1" Grid.Row="2" Margin="5" />
+    </Grid>
+</UserControl>
