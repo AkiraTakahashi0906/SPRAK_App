@@ -4,15 +4,26 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <TextBox Text="{Binding ListSaveTextBox}" FontSize="20" Width="200" Margin="5"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="火薬番号" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding TemperatureText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="火薬名" FontSize="20" Width="100" Margin="5"/>
+                <TextBox Text="{Binding PyrotechnicPartsNumber}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="有効期限" FontSize="20" Width="100" Margin="5"/>
+                <DatePicker SelectedDate="{Binding PyrotechnicEffectiveDate}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
             <Button Content="OK"
                     IsDefault="True"
-                    Command="{Binding OKButton}"/>
+                    Command="{Binding OKButton}" Margin="5"/>
             <Button Content="はい"
-                    Command="{Binding YesCommand}"/>
+                    Command="{Binding YesCommand}" Margin="5"/>
             <Button Content="いいえ"
-                    Command="{Binding NoCommand}"/>
+                    Command="{Binding NoCommand}" Margin="5"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
+using SPRAK.Domain.Entity;
 using SPRAK_App.Views;
 using System.Windows;
 
@@ -41,14 +42,15 @@ namespace SPRAK_App.ViewModels
             var tmp = 1;
             var p = new DialogParameters();
             p.Add(nameof(ListSaveViewModel.ListSaveTextBox), tmp);
-            _dialogService.ShowDialog(nameof(ListSaveView),p, ListSaveClose);
+            _dialogService.ShowDialog(nameof(ListSaveView),p, ListSaveClose);//delegate
         }
 
         private void ListSaveClose(IDialogResult dialogResult)
         {
             if (dialogResult.Result== ButtonResult.OK)
             {
-                MessageBox.Show(dialogResult.Parameters.GetValue<string>(nameof(ListSaveViewModel.ListSaveTextBox)));
+                var kayaku = dialogResult.Parameters.GetValue<PyrotechnicEntity>(nameof(ListSaveViewModel.ListSaveTextBox));
+                MessageBox.Show(kayaku.PartsNumber);
             }
         }
 

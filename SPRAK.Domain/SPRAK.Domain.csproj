@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\PartsListEtity.cs" />
+    <Compile Include="Entity\PyrotechnicEntity.cs" />
     <Compile Include="Entity\SqkEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IPartsListRipository.cs" />
