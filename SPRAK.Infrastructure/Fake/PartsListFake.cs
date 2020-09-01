@@ -19,9 +19,12 @@ namespace SPRAK.Infrastructure.Fake
         {
             var lists = new List<PartsListEtity>();
 
-            lists.Add(new PartsListEtity(1,12345, "test1", "test1", 1));
-            lists.Add(new PartsListEtity(2,12345, "test2", "test2", 2));
-            lists.Add(new PartsListEtity(3,12345, "test3", "test3", 3));
+            lists.Add(new PartsListEtity(1,12345, "test1", "tessft1", 1));
+            lists.Add(new PartsListEtity(2,12345, "test2", "tesfst2", 2));
+            lists.Add(new PartsListEtity(3,12345, "testfsf3", "test3", 3));
+            lists.Add(new PartsListEtity(3, 12345, "test354", "test3", 3));
+            lists.Add(new PartsListEtity(3, 12345, "test3", "te545st3", 3));
+            lists.Add(new PartsListEtity(3, 12345, "tesfasft3", "test3", 3));
 
             return lists;
         }

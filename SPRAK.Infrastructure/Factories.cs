@@ -18,8 +18,8 @@ namespace SPRAK.Infrastructure
 
         public static IPartsListRipository CreatePartsList()
         {
-            //return new PartsListFake();
-            return new PartsListSQLServer();
+            return new PartsListFake();
+            //return new PartsListSQLServer();
         }
 
     }
