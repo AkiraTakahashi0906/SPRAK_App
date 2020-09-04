@@ -21,6 +21,7 @@ namespace SPRAK_App
             containerRegistry.RegisterForNavigation<PartsListView>();
             containerRegistry.RegisterDialog<ListSaveView, ListSaveViewModel>();
             containerRegistry.RegisterForNavigation<DataSearchView>();
+            containerRegistry.RegisterForNavigation<PrintView>();
         }
     }
 }
