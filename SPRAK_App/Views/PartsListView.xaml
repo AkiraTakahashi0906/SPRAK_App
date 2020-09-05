@@ -36,6 +36,16 @@
                     Command="{Binding DeleteButton}"/>
             </StackPanel>
             <ListView ItemsSource="{Binding PartsList}" x:Name="listView" SelectedItem="{Binding SelectedPartsList}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding PartsNumber}" Value="test">
+                                <Setter Property="BorderBrush" Value="Red"/>
+                                <Setter Property="Background" Value="#FFF9C5C5"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"/>

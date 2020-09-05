@@ -4,8 +4,16 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Print" Width="100" Command="{Binding PrintButton}"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Print" Width="100" Command="{Binding PrintButton}" Margin="5"/>
+            <Button Content="BC1" Width="100" Command="{Binding BarcodeButton}" Margin="5"/>
+            <Button Content="BC2" Width="100" Command="{Binding BarcodeButton2}" Margin="5"/>
+            <Button Content="Clear" Width="100" Command="{Binding ClearButton}" Margin="5"/>
+        </StackPanel>
+            <Image Source="{Binding ImageSource}" HorizontalAlignment="Left" 
+    Margin="0,0,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Bottom" 
+    Grid.Row="8" Width="200"  Grid.ColumnSpan="2" />
         </StackPanel>
     </Grid>
 </UserControl>

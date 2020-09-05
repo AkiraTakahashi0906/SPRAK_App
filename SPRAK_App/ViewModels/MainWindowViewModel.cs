@@ -29,12 +29,19 @@ namespace SPRAK_App.ViewModels
             ListSaveButton = new DelegateCommand(ListSaveButtonExecute);
             DataSearchButton = new DelegateCommand(DataSearchButtonExecute);
             PrintButton = new DelegateCommand(PrintButtonExecute);
+            EditButton = new DelegateCommand(EditButtonExecute);
         }
 
         public DelegateCommand PartsListButton { get; }
         public DelegateCommand ListSaveButton { get; }
         public DelegateCommand DataSearchButton { get; }
         public DelegateCommand PrintButton { get; }
+        public DelegateCommand EditButton { get; }
+
+        private void EditButtonExecute()
+        {
+            _regionManager.RequestNavigate("ContentRegion", nameof(DataEditView));
+        }
 
         private void PrintButtonExecute()
         {
