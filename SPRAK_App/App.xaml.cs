@@ -23,6 +23,7 @@ namespace SPRAK_App
             containerRegistry.RegisterForNavigation<DataSearchView>();
             containerRegistry.RegisterForNavigation<PrintView>();
             containerRegistry.RegisterForNavigation<DataEditView>();
+            containerRegistry.RegisterForNavigation<ShelfDataEditView>();
         }
     }
 }

@@ -11,6 +11,11 @@ namespace SPRAK.Infrastructure
 {
     public static class Factories
     {
+        public static IShelfBoxRepository CreateShelfBoxData()
+        {
+            return new ShelfBoxFake();
+        }
+
         public static ISqkDataRepository CreateSqkData()
         {
             return new SqkFake();

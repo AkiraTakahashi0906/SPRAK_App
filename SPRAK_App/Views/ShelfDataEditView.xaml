@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="SPRAK_App.Views.ShelfDataEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <Label Content="BOX新規登録" FontSize="20" Width="200" Margin="5"/>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="棚選択" FontSize="20" Width="200" Margin="5"/>
+                <ComboBox ItemsSource="{Binding ShelfDatas}"
+                          SelectedValuePath="Shelfd"
+                          DisplayMemberPath="ShelfName"
+                          SelectedItem="{Binding SelectedShelfData}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Box設置場所" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding BoxInstallationLocationText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="AssyNo" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding BoxAssyNoText}" FontSize="20" Width="200" Margin="5"/>
+                <Button Content="新規登録" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding AddNewButton}"/>
+            </StackPanel>
+            <Separator />
+            <Label Content="BOXデータ更新" FontSize="20" Width="200" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="BOX選択" FontSize="20" Width="200" Margin="5"/>
+                <ComboBox ItemsSource="{Binding BoxDatas}"
+                          SelectedValuePath="BoxId"
+                          DisplayMemberPath="BoxBarcodeText"
+                          SelectedItem="{Binding SelectedBoxData}" FontSize="20" Width="200" Margin="5"/>
+                <Button Content="選択" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding BoxSelectedButton}"/>
+                <Button Content="印刷" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding PrintButton}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Box設置場所" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding UpdateBoxInstallationLocationText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="AssyNo" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding UpdateBoxAssyNoText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="BOX棚選択" FontSize="20" Width="200" Margin="5"/>
+                <ComboBox ItemsSource="{Binding BoxUpdateShelfDatas}"
+                          SelectedValuePath="Shelfd"
+                          DisplayMemberPath="ShelfName"
+                          SelectedItem="{Binding BoxUpdateSelectedShelfData}" FontSize="20" Width="200" Margin="5"/>
+                <Button Content="更新" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding PrintButton}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

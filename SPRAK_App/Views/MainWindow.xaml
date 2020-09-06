@@ -12,6 +12,7 @@
                 <Button Content="Search" Width="100" Command="{Binding DataSearchButton}"/>
                 <Button Content="Print" Width="100" Command="{Binding PrintButton}"/>
                 <Button Content="Edit" Width="100" Command="{Binding EditButton}"/>
+                <Button Content="Shelf" Width="100" Command="{Binding ShelfButton}"/>
             </StackPanel>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>

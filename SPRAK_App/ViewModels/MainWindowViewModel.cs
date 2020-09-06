@@ -30,6 +30,7 @@ namespace SPRAK_App.ViewModels
             DataSearchButton = new DelegateCommand(DataSearchButtonExecute);
             PrintButton = new DelegateCommand(PrintButtonExecute);
             EditButton = new DelegateCommand(EditButtonExecute);
+            ShelfButton = new DelegateCommand(ShelfButtonExecute);
         }
 
         public DelegateCommand PartsListButton { get; }
@@ -37,6 +38,12 @@ namespace SPRAK_App.ViewModels
         public DelegateCommand DataSearchButton { get; }
         public DelegateCommand PrintButton { get; }
         public DelegateCommand EditButton { get; }
+        public DelegateCommand ShelfButton { get; }
+
+        private void ShelfButtonExecute()
+        {
+            _regionManager.RequestNavigate("ContentRegion", nameof(ShelfDataEditView));
+        }
 
         private void EditButtonExecute()
         {
