@@ -22,5 +22,10 @@ namespace SPRAK.Infrastructure
             return new PartsListSQLServer();
         }
 
+        public static IBomRepository CreateBom()
+        {
+            return new BomFake();
+        }
+
     }
 }

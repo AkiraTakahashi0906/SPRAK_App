@@ -4,7 +4,7 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
             <Label Content="DataEdit" FontSize="20" Width="100" Margin="5"/>
             <DataGrid Name="datagrid" ItemsSource="{Binding PartsList}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"
                   AlternationCount="2"
@@ -16,6 +16,49 @@
                 <DataGrid.Columns>
                 </DataGrid.Columns>
             </DataGrid>
+            <Label Content="DataEdit" FontSize="20" Width="100" Margin="5"/>
+            <DataGrid Name="datagrid2" ItemsSource="{Binding BomList}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"
+                  AlternationCount="2"
+                  AlternatingRowBackground="AliceBlue"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="LightGray"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False" SelectionUnit="Cell" >
+                <DataGrid.Columns>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="元の数" FontSize="20" Width="100" Margin="5"/>
+                <Label Content="{Binding OriginalQuantityText}" FontSize="20" Width="100" Margin="5"/>
+                <Label Content="振り分け数" FontSize="20" Width="100" Margin="5"/>
+                <Label Content="{Binding DivideQuantityText}" FontSize="20" Width="100" Margin="5"/>
+                <Label Content="残り数" FontSize="20" Width="100" Margin="5"/>
+                <Label Content="{Binding RemainingQuantityText}" FontSize="20" Width="100" Margin="5"/>
+            </StackPanel>
+            <DataGrid Name="datagrid3" ItemsSource="{Binding BomList}"  AutoGenerateColumns="False" FontSize="20"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="LightGray"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False" SelectionUnit="Cell" >
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCollected}" Value="True">
+                                <Setter Property="Background" Value="AliceBlue" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="機体番号" Binding="{Binding AircraftNumber}" />
+                    <DataGridTextColumn Header="組立番号" Binding="{Binding AssyNo}" />
+                    <DataGridTextColumn Header="部品番号" Binding="{Binding PartsNo}" />
+                    <DataGridTextColumn Header="必要数量" Binding="{Binding NeedQuantity}" />
+                    <DataGridTextColumn Header="受領数量" Binding="{Binding ReceivedQuantity}" />
+                    <DataGridTextColumn Header="メモ" Binding="{Binding Memo}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Command="{Binding UpdateButton}" Content="更新" Margin="5"  />
         </StackPanel>
     </Grid>
 </UserControl>
