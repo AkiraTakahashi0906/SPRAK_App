@@ -39,14 +39,6 @@ namespace SPRAK.Domain.Helpers
                 bitmap.Save(filePath, ImageFormat.Png);
             }
 
-            using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-            {
-                // FileStreamからBitmapDecoderを作成します。
-                // BitmapCacheOptionをOnLoadにすることで画像データをメモリにキャッシュします。
-                var decoder = BitmapDecoder.Create(fs, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-                var ImageSource = decoder.Frames[0];
-            }
-
         }
     }
 }

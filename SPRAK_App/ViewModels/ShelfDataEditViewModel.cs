@@ -11,6 +11,7 @@ using System.Linq;
 using System.Printing;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Xps;
 
@@ -44,6 +45,13 @@ namespace SPRAK_App.ViewModels
 
         private void PrintBoxBarcode(string filePath)
         {
+            using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+                // FileStreamからBitmapDecoderを作成します。
+                // BitmapCacheOptionをOnLoadにすることで画像データをメモリにキャッシュします。
+                var decoder = BitmapDecoder.Create(fs, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                ImageSource = decoder.Frames[0];
+            }
             //コンパイルするためにはWPFアプリケーションのプロジェクトに
             //「System.Printing」と「ReachFramework」の参照設定を加える必要があります。
             //WPFアプリケーションで印刷を行うにはこれらの参照設定が必要になります。
@@ -64,12 +72,8 @@ namespace SPRAK_App.ViewModels
             Canvas canvas = new Canvas();
             TextBlock tb = new TextBlock();
 
-            System.Windows.Controls.Image image = new System.Windows.Controls.Image();
-            BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.BeginInit();
-            bitmapImage.UriSource = new Uri(filePath, UriKind.Relative);
-            bitmapImage.EndInit();
-            image.Source = bitmapImage;
+            Image image = new Image();
+            image.Source = ImageSource;
 
             Canvas.SetTop(image, 200);
             Canvas.SetLeft(image, 100);
@@ -213,6 +217,16 @@ namespace SPRAK_App.ViewModels
             set
             {
                 SetProperty(ref _boxUpdateSelectedShelfData, value);
+            }
+        }
+
+        private BitmapSource _imageSource;
+        public BitmapSource ImageSource
+        {
+            get { return _imageSource; }
+            set
+            {
+                SetProperty(ref _imageSource, value);
             }
         }
 
