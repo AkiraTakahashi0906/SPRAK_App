@@ -51,7 +51,7 @@
                           DisplayMemberPath="ShelfName"
                           SelectedItem="{Binding BoxUpdateSelectedShelfData}" FontSize="20" Width="200" Margin="5"/>
                 <Button Content="更新" Height="30" FontSize="20" Margin="10"
-                    Command="{Binding PrintButton}"/>
+                    Command="{Binding UpdateButton}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

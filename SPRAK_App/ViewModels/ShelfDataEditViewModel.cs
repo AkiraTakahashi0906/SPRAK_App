@@ -3,12 +3,14 @@ using Prism.Mvvm;
 using SPRAK.Domain.Entity;
 using SPRAK.Domain.Helpers;
 using SPRAK.Domain.Repositories;
+using SPRAK.Domain.Services;
 using SPRAK.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Printing;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -20,14 +22,15 @@ namespace SPRAK_App.ViewModels
     public class ShelfDataEditViewModel : BindableBase
     {
         private IShelfBoxRepository _shelfBoxRepository;
+        private IMessageService _messageService;
 
-        public ShelfDataEditViewModel():this(Factories.CreateShelfBoxData())
+        public ShelfDataEditViewModel() :this(new MessageService(),Factories.CreateShelfBoxData())
         {
-
         }
-        public ShelfDataEditViewModel(IShelfBoxRepository shelfBoxRepository)
+        public ShelfDataEditViewModel(IMessageService messageService,IShelfBoxRepository shelfBoxRepository )
         {
             _shelfBoxRepository = shelfBoxRepository;
+            _messageService = messageService;
             ShelfDatas = _shelfBoxRepository.GetSheflAll();
             BoxUpdateShelfDatas= _shelfBoxRepository.GetSheflAll();
             BoxDatas = _shelfBoxRepository.GetBoxAll();
@@ -92,7 +95,10 @@ namespace SPRAK_App.ViewModels
 
         private void UpdateButtonExecute()
         {
-
+            if (_messageService.Question("更新しますか？") == MessageBoxResult.OK)
+            {
+                _messageService.ShowDialog("更新しました。");
+            }
         }
 
         private void PrintButtonExecute()

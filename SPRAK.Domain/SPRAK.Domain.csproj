@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +65,8 @@
     <Compile Include="Repositories\IPartsListRipository.cs" />
     <Compile Include="Repositories\IShelfBoxRepository.cs" />
     <Compile Include="Repositories\ISqkDataRepository.cs" />
+    <Compile Include="Services\IMessageService.cs" />
+    <Compile Include="Services\MessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ValueObject\" />
