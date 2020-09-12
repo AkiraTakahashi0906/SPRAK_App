@@ -18,8 +18,10 @@
                 <TextBox Text="{Binding BoxInstallationLocationText}" FontSize="20" Width="200" Margin="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="AssyNo" FontSize="20" Width="200" Margin="5"/>
-                <TextBox Text="{Binding BoxAssyNoText}" FontSize="20" Width="200" Margin="5"/>
+                <Label Content="Box名称" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding BoxNameText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <Button Content="新規登録" Height="30" FontSize="20" Margin="10"
                     Command="{Binding AddNewButton}"/>
             </StackPanel>
@@ -37,12 +39,16 @@
                     Command="{Binding PrintButton}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <Label Content="Boxバーコード" FontSize="20" Width="200" Margin="5"/>
+                <Label Content="{Binding BoxBarcodeText}" FontSize="20" Width="200" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <Label Content="Box設置場所" FontSize="20" Width="200" Margin="5"/>
                 <TextBox Text="{Binding UpdateBoxInstallationLocationText}" FontSize="20" Width="200" Margin="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="AssyNo" FontSize="20" Width="200" Margin="5"/>
-                <TextBox Text="{Binding UpdateBoxAssyNoText}" FontSize="20" Width="200" Margin="5"/>
+                <Label Content="Box名称" FontSize="20" Width="200" Margin="5"/>
+                <TextBox Text="{Binding UpdateBoxNameText}" FontSize="20" Width="200" Margin="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <Label Content="BOX棚選択" FontSize="20" Width="200" Margin="5"/>
@@ -52,6 +58,8 @@
                           SelectedItem="{Binding BoxUpdateSelectedShelfData}" FontSize="20" Width="200" Margin="5"/>
                 <Button Content="更新" Height="30" FontSize="20" Margin="10"
                     Command="{Binding UpdateButton}"/>
+                <Button Content="削除" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding DeleteButton}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

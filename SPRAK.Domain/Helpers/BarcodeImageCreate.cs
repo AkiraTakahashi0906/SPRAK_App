@@ -22,11 +22,11 @@ namespace SPRAK.Domain.Helpers
             bacodeWriter.Format = BarcodeFormat.CODE_128;
 
             // サイズ
-            bacodeWriter.Options.Height = 100;
-            bacodeWriter.Options.Width = 300;
+            bacodeWriter.Options.Height = 200;
+            bacodeWriter.Options.Width = 800;
 
             // バーコード左右の余白
-            bacodeWriter.Options.Margin = 30;
+            bacodeWriter.Options.Margin = 50;
 
             // バーコードのみ表示するか
             // falseにするとテキストも表示する

@@ -12,18 +12,18 @@ namespace SPRAK.Domain.Entity
                                         int shelfId,
                                         string boxBarcodeText,
                                         string boxInstallationLocation,
-                                        string boxSetAssyNo)
+                                        string boxName)
         {
             BoxId = boxId;
             ShelfId = shelfId;
             BoxBarcodeText = boxBarcodeText;
             BoxInstallationLocation = boxInstallationLocation;
-            BoxSetAssyNo = boxSetAssyNo;
+            BoxName = boxName;
         }
         public int BoxId { get; }
         public int ShelfId { get; }
         public string BoxBarcodeText { get; }
         public string BoxInstallationLocation { get; }
-        public string BoxSetAssyNo { get; }
+        public string BoxName { get; }
     }
 }

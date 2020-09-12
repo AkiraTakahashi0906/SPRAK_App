@@ -39,12 +39,14 @@ namespace SPRAK_App.ViewModels
             BoxSelectedButton = new DelegateCommand(BoxSelectedButtonExecute);
             PrintButton = new DelegateCommand(PrintButtonExecute);
             UpdateButton = new DelegateCommand(UpdateButtonExecute);
+            DeleteButton = new DelegateCommand(DeleteButtonExecute);
         }
 
         public DelegateCommand AddNewButton { get; }
         public DelegateCommand BoxSelectedButton { get; }
         public DelegateCommand PrintButton { get; }
         public DelegateCommand UpdateButton { get; }
+        public DelegateCommand DeleteButton { get; }
 
         private void PrintBoxBarcode(string filePath)
         {
@@ -82,8 +84,8 @@ namespace SPRAK_App.ViewModels
             Canvas.SetLeft(image, 100);
             canvas.Children.Add(image);
 
-            tb.Text = SelectedBoxData.BoxSetAssyNo;
-            tb.FontSize = 24;
+            tb.Text = SelectedBoxData.BoxName;
+            tb.FontSize = 80;
             Canvas.SetTop(tb, 100);
             Canvas.SetLeft(tb, 100);
             canvas.Children.Add(tb);
@@ -91,6 +93,11 @@ namespace SPRAK_App.ViewModels
 
             // 5. 印刷の実行
             writer.Write(page, ticket);
+        }
+
+        private void DeleteButtonExecute()
+        {
+
         }
 
         private void UpdateButtonExecute()
@@ -111,7 +118,8 @@ namespace SPRAK_App.ViewModels
         private void BoxSelectedButtonExecute()
         {
             UpdateBoxInstallationLocationText = SelectedBoxData.BoxInstallationLocation;
-            UpdateBoxAssyNoText = SelectedBoxData.BoxSetAssyNo;
+            BoxBarcodeText = SelectedBoxData.BoxBarcodeText;
+            UpdateBoxNameText = SelectedBoxData.BoxName;
         }
 
         private void AddNewButtonExecute()
@@ -122,7 +130,7 @@ namespace SPRAK_App.ViewModels
                                                                      SelectedShelfData.Shelfd,
                                                                      barcodeText,
                                                                      BoxInstallationLocationText,
-                                                                     BoxAssyNoText);
+                                                                     BoxNameText);
             _shelfBoxRepository.AddNewBox(addBoxData);
         }
 
@@ -166,6 +174,26 @@ namespace SPRAK_App.ViewModels
             }
         }
 
+        private string _boxNameText;
+        public string BoxNameText
+        {
+            get { return _boxNameText; }
+            set
+            {
+                SetProperty(ref _boxNameText, value);
+            }
+        }
+
+        private string _boxBarcodeText;
+        public string BoxBarcodeText
+        {
+            get { return _boxBarcodeText; }
+            set
+            {
+                SetProperty(ref _boxBarcodeText, value);
+            }
+        }
+
         private string _boxInstallationLocationText;
         public string BoxInstallationLocationText
         {
@@ -176,13 +204,13 @@ namespace SPRAK_App.ViewModels
             }
         }
 
-        private string _boxAssyNoText;
-        public string BoxAssyNoText
+        private string _updateBoxNameText;
+        public string UpdateBoxNameText
         {
-            get { return _boxAssyNoText; }
+            get { return _updateBoxNameText; }
             set
             {
-                SetProperty(ref _boxAssyNoText, value);
+                SetProperty(ref _updateBoxNameText, value);
             }
         }
 
@@ -193,16 +221,6 @@ namespace SPRAK_App.ViewModels
             set
             {
                 SetProperty(ref _updateBoxInstallationLocationText, value);
-            }
-        }
-
-        private string _updateBoxAssyNoText;
-        public string UpdateBoxAssyNoText
-        {
-            get { return _updateBoxAssyNoText; }
-            set
-            {
-                SetProperty(ref _updateBoxAssyNoText, value);
             }
         }
 
