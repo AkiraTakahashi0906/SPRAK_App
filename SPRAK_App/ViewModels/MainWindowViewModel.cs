@@ -31,6 +31,7 @@ namespace SPRAK_App.ViewModels
             PrintButton = new DelegateCommand(PrintButtonExecute);
             EditButton = new DelegateCommand(EditButtonExecute);
             ShelfButton = new DelegateCommand(ShelfButtonExecute);
+            DataSearch2Button = new DelegateCommand(DataSearch2ButtonExecute);
         }
 
         public DelegateCommand PartsListButton { get; }
@@ -39,6 +40,7 @@ namespace SPRAK_App.ViewModels
         public DelegateCommand PrintButton { get; }
         public DelegateCommand EditButton { get; }
         public DelegateCommand ShelfButton { get; }
+        public DelegateCommand DataSearch2Button { get; }
 
         private void ShelfButtonExecute()
         {
@@ -63,6 +65,11 @@ namespace SPRAK_App.ViewModels
         private void PartsListButtonExecute()
         {
             _regionManager.RequestNavigate("ContentRegion", nameof(PartsListView));
+        }
+
+        private void DataSearch2ButtonExecute()
+        {
+            _regionManager.RequestNavigate("ContentRegion", nameof(DataSearch2View));
         }
 
         private void ListSaveButtonExecute()

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="SPRAK_App.Views.DataSearch2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{Binding NarrowDownText}" FontSize="20" Width="100" Margin="5"/>
+            <Label Content="で絞り込み" FontSize="20" Width="100" Margin="5"/>
+            <TextBox Text="{Binding SearchText}" FontSize="20" Width="150" Margin="5"/>
+            <Button Content="一致検索" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding NarrowDownSearchButton}"/>
+            <Button Content="Like検索" Height="30" FontSize="20" Margin="10"
+                    Command="{Binding NarrowDownLikeSearchButton}"/>
+        </StackPanel>
+        <DataGrid Name="datagrid" ItemsSource="{Binding ViewDataTable}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4"
+                  AlternationCount="2"
+                  AlternatingRowBackground="AliceBlue"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="LightGray"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False" SelectionUnit="Cell">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding SearchButton1}" Content="Search1" Grid.Column="1" Grid.Row="1" Margin="5"  />
+        <Button Command="{Binding SearchButton2}" Content="Search2" Grid.Column="1" Grid.Row="2" Margin="5"  />
+        <Button Command="{Binding SearchButton3}" Content="Search3" Grid.Column="1" Grid.Row="3" Margin="5" />
+        <Button Command="{Binding SearchButton4}" Content="Search4"  Grid.Column="1" Grid.Row="4" Margin="5"/>
+    </Grid>
+</UserControl>
