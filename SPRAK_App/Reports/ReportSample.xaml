@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="SPRAK_App.Reports.ReportSample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:vm="clr-namespace:SPRAK_App.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.DataContext>
+        <vm:PrintViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <StackPanel>
+            <Label Content="{Binding Text}" FontSize="50"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"/>
+            <DataGrid ItemsSource="{Binding PartsList, Mode=OneWay}"   
+                  IsReadOnly="True" FontSize="30"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

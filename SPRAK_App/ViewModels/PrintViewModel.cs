@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using SPRAK.Domain.Entity;
+using SPRAK_App.Reports;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -24,11 +26,33 @@ namespace SPRAK_App.ViewModels
             BarcodeButton = new DelegateCommand(BarcodeButtonExecute);
             BarcodeButton2 = new DelegateCommand(BarcodeButton2Execute);
             ClearButton = new DelegateCommand(ClearButtonExecute);
+            XamlPrintButton = new DelegateCommand(XamlPrintButtonExecute);
+            Text = "akira";
+
+            var lists = new List<PartsListEtity>();
+
+            for (int i=0 ; i < 15; i++)
+            {
+                lists.Add(new PartsListEtity(1, 12345, "test1", "tessft1", 1));
+                lists.Add(new PartsListEtity(2, 12345, "test2", "tesfst2", 2));
+                lists.Add(new PartsListEtity(3, 12345, "testfsf3", "test3", 3));
+                lists.Add(new PartsListEtity(3, 12345, "test354", "test3", 3));
+                lists.Add(new PartsListEtity(3, 12345, "test3", "te545st3", 3));
+                lists.Add(new PartsListEtity(3, 12345, "tesfasft3", "test3", 3));
+            }
+
+            PartsList = lists;
         }
         public DelegateCommand PrintButton { get; }
         public DelegateCommand BarcodeButton { get; }
         public DelegateCommand BarcodeButton2 { get; }
         public DelegateCommand ClearButton { get; }
+        public DelegateCommand XamlPrintButton { get; }
+
+        private void XamlPrintButtonExecute()
+        {
+            ReportsPrinter.Print(this);
+        }
 
         private void ClearButtonExecute()
         {
@@ -173,6 +197,26 @@ namespace SPRAK_App.ViewModels
             set
             {
                 SetProperty(ref _imageSource, value);
+            }
+        }
+
+        private string _text;
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                SetProperty(ref _text, value);
+            }
+        }
+
+        private List<PartsListEtity> _partsList;
+        public List<PartsListEtity> PartsList
+        {
+            get { return _partsList; }
+            set
+            {
+                SetProperty(ref _partsList, value);
             }
         }
 
