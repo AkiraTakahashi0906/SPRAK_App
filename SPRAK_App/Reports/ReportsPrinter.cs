@@ -37,12 +37,12 @@ namespace SPRAK_App.Reports
 
             PrintDocumentImageableArea imgArea = null;
             //こちらのオーバーロードだと、プリンタ選択ダイアログが出る。
-            xpsdw = PrintQueue.CreateXpsDocumentWriter(ref imgArea);
+            //xpsdw = PrintQueue.CreateXpsDocumentWriter(ref imgArea);
 
-            //var ps = new LocalPrintServer();
-            //var pq = ps.DefaultPrintQueue; 
+            var ps = new LocalPrintServer();
+            var pq = ps.DefaultPrintQueue;
             //こちらのオーバーロードだと、プリンタ選択ダイアログを飛ばして既定のプリンタにスプールされる
-            //xpsdw = PrintQueue.CreateXpsDocumentWriter(pq);
+            xpsdw = PrintQueue.CreateXpsDocumentWriter(pq);
             xpsdw.Write(fixedDocument);
         }
 

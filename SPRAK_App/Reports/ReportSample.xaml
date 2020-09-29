@@ -12,7 +12,7 @@
             <Label Content="{Binding Text}" FontSize="50"
                VerticalContentAlignment="Center"
                HorizontalContentAlignment="Center"/>
-            <DataGrid ItemsSource="{Binding PartsList, Mode=OneWay}"   
+            <DataGrid ItemsSource="{Binding PrintPartsList, Mode=OneWay}"   
                   IsReadOnly="True" FontSize="30"/>
         </StackPanel>
     </Grid>

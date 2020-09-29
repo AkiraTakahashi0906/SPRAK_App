@@ -31,14 +31,9 @@ namespace SPRAK_App.ViewModels
 
             var lists = new List<PartsListEtity>();
 
-            for (int i=0 ; i < 15; i++)
+            for (int i=0 ; i < 35; i++)
             {
-                lists.Add(new PartsListEtity(1, 12345, "test1", "tessft1", 1));
-                lists.Add(new PartsListEtity(2, 12345, "test2", "tesfst2", 2));
-                lists.Add(new PartsListEtity(3, 12345, "testfsf3", "test3", 3));
-                lists.Add(new PartsListEtity(3, 12345, "test354", "test3", 3));
-                lists.Add(new PartsListEtity(3, 12345, "test3", "te545st3", 3));
-                lists.Add(new PartsListEtity(3, 12345, "tesfasft3", "test3", 3));
+                lists.Add(new PartsListEtity(i, 12345, "test1", "tessft1", i));
             }
 
             PartsList = lists;
@@ -51,6 +46,20 @@ namespace SPRAK_App.ViewModels
 
         private void XamlPrintButtonExecute()
         {
+            var insertCount = 0;
+            var rowSetting = 15;
+            PrintPartsList = new List<PartsListEtity>();
+            foreach (var partslist in PartsList)
+            {
+                PrintPartsList.Add(partslist);
+                insertCount++;
+                if (insertCount== rowSetting)
+                {
+                    ReportsPrinter.Print(this);
+                    PrintPartsList.Clear();
+                    insertCount = 0;
+                }
+            }
             ReportsPrinter.Print(this);
         }
 
@@ -217,6 +226,16 @@ namespace SPRAK_App.ViewModels
             set
             {
                 SetProperty(ref _partsList, value);
+            }
+        }
+
+        private List<PartsListEtity> _printPartsList;
+        public List<PartsListEtity> PrintPartsList
+        {
+            get { return _printPartsList; }
+            set
+            {
+                SetProperty(ref _printPartsList, value);
             }
         }
 
