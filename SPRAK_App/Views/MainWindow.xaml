@@ -1,9 +1,11 @@
-﻿<Window x:Class="SPRAK_App.Views.MainWindow"
+﻿<Controls:MetroWindow x:Class="SPRAK_App.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="650" Width="825">
+
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -14,8 +16,9 @@
                 <Button Content="Edit" Width="100" Command="{Binding EditButton}"/>
                 <Button Content="Shelf" Width="100" Command="{Binding ShelfButton}"/>
                 <Button Content="Search2" Width="100" Command="{Binding DataSearch2Button}"/>
+                <Button Content="Mahapps" Width="100" Command="{Binding MahappsViewButton}"/>
             </StackPanel>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>
     </Grid>
-</Window>
+</Controls:MetroWindow>

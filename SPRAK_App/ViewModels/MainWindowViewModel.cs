@@ -1,9 +1,12 @@
-﻿using Prism.Commands;
+﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Services.Dialogs;
 using SPRAK.Domain.Entity;
 using SPRAK_App.Views;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace SPRAK_App.ViewModels
@@ -11,10 +14,13 @@ namespace SPRAK_App.ViewModels
     public class MainWindowViewModel : BindableBase
     {
 
+        public MetroWindow Metro { get; set; } = System.Windows.Application.Current.MainWindow as MetroWindow;
+
         private IRegionManager _regionManager;
         private IDialogService _dialogService;
 
         private string _title = "SPRAK Prism Application";
+
         public string Title
         {
             get { return _title; }
@@ -32,7 +38,12 @@ namespace SPRAK_App.ViewModels
             EditButton = new DelegateCommand(EditButtonExecute);
             ShelfButton = new DelegateCommand(ShelfButtonExecute);
             DataSearch2Button = new DelegateCommand(DataSearch2ButtonExecute);
+            MahappsViewButton = new DelegateCommand(MahappsViewButtonExecute);
         }
+
+        private DelegateCommand showMessageCommand;
+        public DelegateCommand ShowMessageCommand =>
+            showMessageCommand ?? (showMessageCommand = new DelegateCommand(ShowMessageCommandExecute));
 
         public DelegateCommand PartsListButton { get; }
         public DelegateCommand ListSaveButton { get; }
@@ -41,6 +52,18 @@ namespace SPRAK_App.ViewModels
         public DelegateCommand EditButton { get; }
         public DelegateCommand ShelfButton { get; }
         public DelegateCommand DataSearch2Button { get; }
+        public DelegateCommand MahappsViewButton { get; }
+
+        private async void ShowMessageCommandExecute()
+        {
+            await Metro.ShowMessageAsync("This is the title", "Some message");
+        }
+
+        private async void MahappsViewButtonExecute()
+        {
+            await Metro.ShowMessageAsync("This is the title", "Some message");
+            _regionManager.RequestNavigate("ContentRegion", nameof(MahappsView));
+        }
 
         private void ShelfButtonExecute()
         {

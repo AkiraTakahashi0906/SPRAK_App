@@ -5,11 +5,11 @@ using System.Windows.Controls;
 namespace SPRAK_App.Views
 {
     /// <summary>
-    /// Interaction logic for DataSearch2View
+    /// Interaction logic for MahappsView
     /// </summary>
-    public partial class DataSearch2View : UserControl
+    public partial class MahappsView : UserControl
     {
-        public DataSearch2View()
+        public MahappsView()
         {
             InitializeComponent();
         }

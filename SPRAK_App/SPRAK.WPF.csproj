@@ -67,6 +67,7 @@
     <Compile Include="ViewModels\DataSearch2ViewModel.cs" />
     <Compile Include="ViewModels\DataSearchViewModel.cs" />
     <Compile Include="ViewModels\ListSaveViewModel.cs" />
+    <Compile Include="ViewModels\MahappsViewModel.cs" />
     <Compile Include="ViewModels\PartsListViewModel.cs" />
     <Compile Include="ViewModels\PrintViewModel.cs" />
     <Compile Include="ViewModels\ShelfDataEditViewModel.cs" />
@@ -81,6 +82,9 @@
     </Compile>
     <Compile Include="Views\ListSaveView.xaml.cs">
       <DependentUpon>ListSaveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MahappsView.xaml.cs">
+      <DependentUpon>MahappsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PartsListView.xaml.cs">
       <DependentUpon>PartsListView.xaml</DependentUpon>
@@ -108,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ListSaveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MahappsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +169,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignColors">
+      <Version>1.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignThemes">
+      <Version>3.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignThemes.MahApps">
+      <Version>0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
     <PackageReference Include="ZXing.Net">
       <Version>0.16.5</Version>
