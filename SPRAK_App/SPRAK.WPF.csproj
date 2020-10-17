@@ -70,6 +70,8 @@
     <Compile Include="ViewModels\MahappsViewModel.cs" />
     <Compile Include="ViewModels\PartsListViewModel.cs" />
     <Compile Include="ViewModels\PrintViewModel.cs" />
+    <Compile Include="ViewModels\ReactiveProperty2ViewModel.cs" />
+    <Compile Include="ViewModels\ReactivePropertyViewModel.cs" />
     <Compile Include="ViewModels\ShelfDataEditViewModel.cs" />
     <Compile Include="Views\DataEditView.xaml.cs">
       <DependentUpon>DataEditView.xaml</DependentUpon>
@@ -91,6 +93,12 @@
     </Compile>
     <Compile Include="Views\PrintView.xaml.cs">
       <DependentUpon>PrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReactiveProperty2View.xaml.cs">
+      <DependentUpon>ReactiveProperty2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReactivePropertyView.xaml.cs">
+      <DependentUpon>ReactivePropertyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShelfDataEditView.xaml.cs">
       <DependentUpon>ShelfDataEditView.xaml</DependentUpon>
@@ -140,6 +148,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ReactiveProperty2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReactivePropertyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShelfDataEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +198,9 @@
       <Version>0.1.5</Version>
     </PackageReference>
     <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
+    <PackageReference Include="ReactiveProperty.WPF">
+      <Version>7.4.1</Version>
+    </PackageReference>
     <PackageReference Include="ZXing.Net">
       <Version>0.16.5</Version>
     </PackageReference>

@@ -26,6 +26,8 @@ namespace SPRAK_App
             containerRegistry.RegisterForNavigation<ShelfDataEditView>();
             containerRegistry.RegisterForNavigation<DataSearch2View>();
             containerRegistry.RegisterForNavigation<MahappsView>();
+            containerRegistry.RegisterForNavigation<ReactivePropertyView>();
+            containerRegistry.RegisterForNavigation<ReactiveProperty2View>();
         }
     }
 }

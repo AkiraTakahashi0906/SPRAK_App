@@ -67,10 +67,9 @@
     <Compile Include="Repositories\ISqkDataRepository.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\MessageService.cs" />
+    <Compile Include="ValueObject\Person.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ValueObject\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -16,7 +16,11 @@
                 <Button Content="Edit" Width="100" Command="{Binding EditButton}"/>
                 <Button Content="Shelf" Width="100" Command="{Binding ShelfButton}"/>
                 <Button Content="Search2" Width="100" Command="{Binding DataSearch2Button}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <Button Content="Mahapps" Width="100" Command="{Binding MahappsViewButton}"/>
+                <Button Content="ReactiveProperty" Width="200" Command="{Binding ReactivePropertyButton}"/>
+                <Button Content="ReactiveProperty2" Width="200" Command="{Binding ReactiveProperty2Button}"/>
             </StackPanel>
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>

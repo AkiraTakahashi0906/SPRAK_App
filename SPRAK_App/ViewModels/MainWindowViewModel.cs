@@ -39,6 +39,8 @@ namespace SPRAK_App.ViewModels
             ShelfButton = new DelegateCommand(ShelfButtonExecute);
             DataSearch2Button = new DelegateCommand(DataSearch2ButtonExecute);
             MahappsViewButton = new DelegateCommand(MahappsViewButtonExecute);
+            ReactivePropertyButton = new DelegateCommand(ReactivePropertyButtonExecute);
+            ReactiveProperty2Button = new DelegateCommand(ReactiveProperty2ButtonExecute);
         }
 
         private DelegateCommand showMessageCommand;
@@ -53,15 +55,26 @@ namespace SPRAK_App.ViewModels
         public DelegateCommand ShelfButton { get; }
         public DelegateCommand DataSearch2Button { get; }
         public DelegateCommand MahappsViewButton { get; }
+        public DelegateCommand ReactivePropertyButton { get; }
+        public DelegateCommand ReactiveProperty2Button { get; }
 
         private async void ShowMessageCommandExecute()
         {
             await Metro.ShowMessageAsync("This is the title", "Some message");
         }
 
-        private async void MahappsViewButtonExecute()
+        private void ReactiveProperty2ButtonExecute()
         {
-            await Metro.ShowMessageAsync("This is the title", "Some message");
+            _regionManager.RequestNavigate("ContentRegion", nameof(ReactiveProperty2View));
+        }
+
+        private void ReactivePropertyButtonExecute()
+        {
+            _regionManager.RequestNavigate("ContentRegion", nameof(ReactivePropertyView));
+        }
+
+        private  void MahappsViewButtonExecute()
+        {
             _regionManager.RequestNavigate("ContentRegion", nameof(MahappsView));
         }
 

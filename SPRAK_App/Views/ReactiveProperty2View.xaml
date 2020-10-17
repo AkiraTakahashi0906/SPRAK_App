@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="SPRAK_App.Views.ReactiveProperty2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <Label Content="入力" />
+                <TextBox Text="{Binding Input.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="出力" />
+                <TextBlock Text="{Binding Output.Value}" />
+                <Button Content="CLEAR" Command="{Binding ClearCommand}" />
+                <Label Content="Name" />
+                <TextBox Text="{Binding Name.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Age" />
+                <TextBlock Text="{Binding Age.Value}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
